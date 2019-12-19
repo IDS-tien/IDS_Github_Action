@@ -1,11 +1,12 @@
-workflow "PHPCS Inspections" {
-  resolves = ["Run phpcs inspection"]
-  on = "push"
-}
+name: Run PHPCS on pull requests
 
-action "Run phpcs inspection" {
-  uses = "rtCamp/rtCamp/action-phpcs-inspection@master"
-  env = {
-    DIFF_BASE="master"
-  }
-}
+on: push
+
+jobs:
+  phpcs:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: rtCamp/action-phpcs-code-review@master
