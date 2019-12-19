@@ -4,7 +4,7 @@ class GithubAction {
     }
 
     private function failCI() {
-        
+        a
     }
 
     public function testCI() {
